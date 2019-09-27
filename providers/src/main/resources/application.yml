@@ -1,0 +1,40 @@
+#dubbo:
+#  scan:
+#    base-packages: com.guan18.provider.service
+#  protocol:
+#    name: dubbo
+#    port: 9010
+#  registry:
+#    address: zookeeper://47.92.241.17:2181
+#    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
+#spring:
+#  application:
+#    name: provider
+#  redis:
+#    database: 0
+#    host: 47.92.241.17
+#    port: 9865
+#    password: 7YfN#Dk54w25r3
+#server:
+#  port: 8282
+
+spring:
+  application:
+    name: providers
+dubbo:
+  scan:
+    base-packages: com.fengqi.providers.service
+  protocol:
+    name: dubbo
+    port: 9010
+  registry:
+    address: zookeeper://39.105.132.36:${embedded.zookeeper.port}
+    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
+server:
+  port: 8282
+demo:
+  service:
+    version: 1.0.0
+embedded:
+  zookeeper:
+    port: 2181
